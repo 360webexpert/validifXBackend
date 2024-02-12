@@ -25,7 +25,9 @@ app.use((req, res, next) => {
     next();
 });
 app.use(bodyParser.json());
-
+app.get ("/", (req, res) => {
+  res.json({message: "Welcome"});
+  });
 // Generate a random secret key
 // const secretKey = crypto.randomBytes(32).toString('hex');
 // console.log('Generated Secret Key:', secretKey);
