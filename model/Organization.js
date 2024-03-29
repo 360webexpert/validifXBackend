@@ -5,32 +5,68 @@ module.exports = (sequelize, Sequelize) => {
     name: {
       type: Sequelize.STRING,
       allowNull: false
-    },
-    email: {
+  },
+  email: {
       type: Sequelize.STRING,
       allowNull: false
-    },
-    cardNumber: {
-      type: Sequelize.STRING,
-      allowNull: false
-    },
-    expiryDate: {
-      type: Sequelize.DATE,
-      allowNull: false
-    },
-    transactionId: {
-      type: Sequelize.STRING,
-      allowNull: false
-    },
-    planPrice: {
+  },
+  amount: {
       type: Sequelize.FLOAT,
       allowNull: false
-    },
-    password: {
+  },
+  address: {
       type: Sequelize.STRING,
       allowNull: false
-    }
-  });
+  },
+  country: {
+      type: Sequelize.STRING,
+      allowNull: false
+  },
+  state: {
+      type: Sequelize.STRING,
+      allowNull: false
+  },
+  city: {
+      type: Sequelize.STRING,
+      allowNull: false
+  },
+  currency: {
+      type: Sequelize.STRING,
+      allowNull: false
+  },
+  zip: {
+      type: Sequelize.STRING,
+      allowNull: false
+  },
+  password: {
+      type: Sequelize.STRING,
+      allowNull: false
+  },
+  subscriptionId: {
+      type: Sequelize.STRING,
+      allowNull: false // Depending on your business logic, this might be true or false
+  },
+  customerId: {
+      type: Sequelize.STRING,
+      allowNull: false
+  },
+  paymentIntentId: {
+      type: Sequelize.STRING,
+      allowNull: false
+  },
+  planInterval: {
+      type: Sequelize.STRING,
+      allowNull: false
+  },
+  planDescription: {
+      type: Sequelize.STRING,
+      allowNull: false
+  },
+  quantity: {
+      type: Sequelize.INTEGER,
+      allowNull: false
+  }
+});
 
   // Hash password before saving to the database
   Organization.beforeCreate(async (organization) => {

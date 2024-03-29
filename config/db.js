@@ -2,7 +2,7 @@ module.exports = {
   development: {
       host: "localhost",
       username: "root",
-      password: "Password@1234",
+      password: "root@123",
       database: "validifx",
       dialect: "mysql",
       pool: {

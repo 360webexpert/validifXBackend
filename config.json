@@ -1,0 +1,13 @@
+{
+  "development": {
+    "username": "ubuntu",
+    "password": "Webpaint@403",
+    "database": "mysql",
+    "host": "localhost",
+    "dialect": "mysql"
+  }
+  
+}
+
+
+

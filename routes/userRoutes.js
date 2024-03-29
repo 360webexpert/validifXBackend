@@ -4,10 +4,12 @@ module.exports = app => {
     var router = require("express").Router();
 
     // Route to send OTP
-    router.post('/sendOTP', userController.sendOTP);
+    router.post('/validateuser', userController.validateUser);
 
     // Route to validate OTP
     router.post('/validateOTP', userController.validateOTP);
+    router.get('/user', userController.getUserByToken);
+    router.put('/updateuser', userController.updateUser);
 
     app.use('/api', router);
 };

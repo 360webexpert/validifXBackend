@@ -11,6 +11,10 @@ module.exports = (sequelize, Sequelize) => {
     organizationId:{
       type: Sequelize.STRING,
       allowNull: false
+    },
+    isVerified:{
+      type: Sequelize.BOOLEAN,
+      default: false
     }
   });
 

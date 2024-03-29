@@ -22,6 +22,9 @@ db.sequelize = sequelize;
 // Define your models
 db.user = require("./user.js")(sequelize, Sequelize);
 db.organization = require("./Organization.js")(sequelize, Sequelize);
+db.contactus = require("./contactus.js")(sequelize, Sequelize);
+db.document = require("./document.js")(sequelize, Sequelize);
+
 // db.addCourse = require("./AdminMode/admincourse.model.js")(sequelize, Sequelize);
 // db.createusercheckout = require("./usercheckout.model.js")(sequelize, Sequelize);
 // db.userCourse = require("./userCourse.model.js")(sequelize, Sequelize);

@@ -9,7 +9,7 @@ const app = express();
 const crypto = require('crypto');
 const path = require("path");
 const fs = require('fs');
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 
 app.set('view engine', 'ejs')
 app.set("views", path.join(__dirname, "utils"));
@@ -36,55 +36,21 @@ app.get ("/", (req, res) => {
 // console.log('Generated Secret Key:', secretKey);
 
 // Use  routes
-app.use(express.urlencoded({ extended: true }));
-
+app.use(express.urlencoded({ extended: false }));
+	
 
 // Sync Sequelize models with the database
 db.sequelize.sync({ force: false }).then(async () => {
-  console.log("Database synced.");
   
-  // Start watching the models directory for changes
-  watchModelsDirectory();
 
-  // Start the server
-  startServer();
 });
 
-// Function to watch models directory for changes
-function watchModelsDirectory() {
-  fs.watch('./model', (eventType, filename) => {
-      console.log(`File ${filename} has been ${eventType}`);
-
-      // Execute migration script when a change is detected
-      if (eventType === 'change' || eventType === 'rename') {
-          runMigrations();
-      }
-  });
-}
-
-// Function to run migrations
-async function runMigrations() {
-  try {
-      console.log('Running migrations...');
-      const { stdout, stderr } = await exec('npm run migrate');
-      console.log('Migrations completed successfully:', stdout);
-  } catch (error) {
-      console.error('Error running migrations:', error);
-  }
-}
-
-// Function to start the server
-function startServer() {
-
-  app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}.`);
-  });
-}
 
 
 require("./routes/userRoutes")(app);
 require("./routes/organizationRoutes")(app);
 require("./routes/documentRoutes")(app);
-// app.listen(PORT, () => {
-//   console.log(`Server is running on port ${PORT}`);
-// });
+app.listen(PORT, () => {
+ console.log(`Server is running on port ${PORT}`);
+});
+  

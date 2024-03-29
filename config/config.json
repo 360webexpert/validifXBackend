@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "root@123",
+    "database": "validifx",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "Password@1234",
+    "database": "validifx",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
