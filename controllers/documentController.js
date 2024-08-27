@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 // const db = require('../model');
 const db = require('../model')
 const document = db.document
+const user = db.user
 const authenticateToken = require('../utils/authMiddleware');
 const moment = require('moment');
 exports.documentuser = async (req, res) => {
@@ -38,6 +39,7 @@ exports.documentuser = async (req, res) => {
             portraitImage = '',
             documentImage = '',
             barcodeImage = '',
+            userId=''
         } = req.body;
 
         // Validate and format dates
@@ -85,7 +87,8 @@ exports.documentuser = async (req, res) => {
             signatureImage,
             portraitImage,
             documentImage,
-            barcodeImage
+            barcodeImage,
+            userId
         });
 
         res.status(200).json({
@@ -108,7 +111,11 @@ exports.documentuser = async (req, res) => {
 exports.getAllDocumentUsers = async (req, res) => {
     try {
 
-        const allDocumentUsers = await document.findAll();
+        const allDocumentUsers = await document.findAll({
+            include:[{
+                model:user
+            }]
+    });
 
 
         res.status(200).json({

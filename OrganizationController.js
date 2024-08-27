@@ -115,7 +115,7 @@ exports.createUser = [
 
             // Create user record in the database
             const user = await User.create({ username, phoneNumber, organizationId });
-
+            
             res.status(201).json({ message: 'User created successfully', user });
         } catch (error) {
             console.error("Error creating user:", error);

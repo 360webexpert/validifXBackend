@@ -115,10 +115,19 @@ module.exports = (sequelize, Sequelize) => {
         barcodeImage: {
             type: Sequelize.STRING,
             allowNull: true
+        },
+        userId: {
+            type: Sequelize.INTEGER,
+            allowNull: false,
+            references: {
+              model: 'users',
+              key: 'id'     
+            },
         }
-
     });
-
+    // document.associate = (models) => {
+    //     document.belongsTo(models.User, { foreignKey: 'userId' });
+    //   };
     return document;
 };
 
