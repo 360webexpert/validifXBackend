@@ -3,4 +3,5 @@ const defineAssociations = (db) => {
     user.hasMany(document,{foreignKey:"userId"})
     document.belongsTo(user,{foreignKey:"userId"})
 }
+
 module.exports = defineAssociations;
